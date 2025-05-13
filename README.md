@@ -4,7 +4,7 @@
 | *COMMAND* | *NAME LIB* | *SCRIPT* |
 | :---- | :---- | :---- |
 | pip install easyorc | easyOCR |  |
-| pip install matplotlib | matplotlib | proper\_growth.py\nTIFF\_toGrid.py \nBox plot.py |
+| pip install matplotlib | matplotlib | proper\_growth.py<br />TIFF\_toGrid.py <br />Box plot.py |
 | pip install numpy | numpy | proper\_growth.py\nTIFF\_toGrid.py |
 | pip install torch | Torch |  |
 | pip install tqdm | TQDM | proper\_growth.py |
