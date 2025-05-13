@@ -8,7 +8,7 @@
 | pip install numpy | numpy | proper\_growth.py TIFF\_toGrid.py |
 | pip install torch | Torch |  |
 | pip install tqdm | TQDM | proper\_growth.py |
-| pip install selenium |  |  |
+| pip install selenium | selenium |  |
 | pip install webdriver-manager |  |  |
 | pip install imageio | ImageIO | proper\_growth.py |
 | pip install pyautogui |  |  |
