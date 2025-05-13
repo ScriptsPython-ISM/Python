@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""
-Crack.py
-
-Reads an existing passwords.txt file in the same directory and attempts login
-on https://exaroton.com/go/ for the fixed username "barbute". No interactive prompts.
-"""
 import requests
 from pathlib import Path
 
