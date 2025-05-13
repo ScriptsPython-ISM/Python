@@ -6,7 +6,7 @@
 | pip install easyorc | easyOCR |  |
 | pip install matplotlib | matplotlib | proper\_growth.pyTIFF\_toGrid.py Box plot.py |
 | pip install numpy | numpy | proper\_growth.py TIFF\_toGrid.py |
-| pip install torch |  |  |
+| pip install torch | Torch |  |
 | pip install tqdm | TQDM | proper\_growth.py |
 | pip install selenium |  |  |
 | pip install webdriver-manager |  |  |
