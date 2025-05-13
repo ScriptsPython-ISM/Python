@@ -4,7 +4,7 @@ import math
 def image_to_start_txt(image_path, output_path="start.txt", size=(50, 50)):
     img = Image.open(image_path).convert("RGB")
     img = img.resize(size)
-    key = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'."
+    key = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'."
     multiplication = len(key)/255
 
     with open(output_path, "w") as f:
