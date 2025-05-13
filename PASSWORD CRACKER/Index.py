@@ -1,13 +1,3 @@
-#!/usr/bin/env python3
-"""
-index.py
-
-Interactive password list generator with two modes:
-1) Base-word mode: supply comma-separated bases to enumerate variants, symbols, and numbers.
-2) Brute-force mode: leave bases blank to generate every possible password from the full charset within length bounds.
-
-Optimized base-word mode to stream numeric range without large memory usage.
-"""
 import itertools
 import string
 from tqdm import tqdm
@@ -44,30 +34,30 @@ def base_word_mode():
     num_start, num_end = parse_num_range(rng)
     outfile = input("Enter output file (default 'passwords.txt'): ").strip() or "passwords.txt"
 
-    # Compute counts without constructing full list
+
     numeric_count = num_end - num_start + 1
     cap_count = sum(2**len(b) for b in bases)
     total = (
-        cap_count * len(symbols) * numeric_count * 2  # three-part combos
-        + cap_count * len(symbols) * 2               # two-part combos var-sym / sym-var
-        + numeric_count * len(symbols) * 2           # two-part combos num-sym / sym-num
+        cap_count * len(symbols) * numeric_count * 2  
+        + cap_count * len(symbols) * 2               
+        + numeric_count * len(symbols) * 2           
     )
     print(f"\nGenerating ~{total:,} passwords in base-word mode...")
 
     with open(outfile, 'w', encoding='utf-8') as f:
         for base in bases:
             for var in generate_capitalization_variants(base):
-                # var+symbol+number combos
+
                 for sym in symbols:
                     for num in range(num_start, num_end + 1):
                         s_num = str(num)
                         f.write(f"{var}{sym}{s_num}\n")
                         f.write(f"{s_num}{sym}{var}\n")
-                # two-part combos: variant+symbol and symbol+variant
+
                 for sym in symbols:
                     f.write(f"{var}{sym}\n")
                     f.write(f"{sym}{var}\n")
-                # two-part combos: number+symbol and symbol+number
+
                 for num in range(num_start, num_end + 1):
                     s_num = str(num)
                     for sym in symbols:
