@@ -4,7 +4,6 @@ boys_data = [1, 1, 1, 2, 2, 2.5, 3, 3, 3, 4, 10]
 girls_data = [1, 1, 1.5, 2, 3.5, 4, 4, 4, 5, 6, 12, 14]
 
 def median_of_sorted(values):
-    """Median of a sorted list, using straightforward approach."""
     n = len(values)
     mid = n // 2
     if n % 2 == 1:
@@ -15,12 +14,7 @@ def median_of_sorted(values):
         return (values[mid - 1] + values[mid]) / 2
 
 def five_number_summary_classical(data):
-    """
-    Compute (Min, Q1, Median, Q3, Max) via classical 'by-hand' splitting:
-      - Sort data.
-      - If n is odd, exclude the middle from each half for Q1 and Q3.
-      - If n is even, split exactly in half and take medians.
-    """
+
     sorted_data = sorted(data)
     n = len(sorted_data)
 
