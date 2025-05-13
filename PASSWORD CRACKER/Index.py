@@ -4,7 +4,6 @@ from tqdm import tqdm
 from pathlib import Path
 
 def generate_capitalization_variants(word):
-    """Yield all capitalization variants of the given word."""
     for pattern in itertools.product([0, 1], repeat=len(word)):
         yield ''.join(
             ch.upper() if cap and ch.isalpha() else ch.lower()
