@@ -9,6 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from metaphone import doublemetaphone
 import difflib
 
+class SuperBreak(Exception): pass
+
 def similar(word1, word2, threshold=0.8):
     sound1 = doublemetaphone(word1)
     sound2 = doublemetaphone(word2)
@@ -46,21 +48,25 @@ WebDriverWait(driver, 10).until(
 try:
     while True:
         time.sleep(2)
-        texts = driver.find_element(By.XPATH, "//div[contains(@aria-label, 'Group profile picture for')]").get_attribute("aria-label").removeprefix("Group profile picture for \"").removesuffix("\"")
-        print(texts)
-        texts = texts.split()
-        for text in texts:
-            for test in bad:
-                if similar(text, test):
-                    driver.find_element(By.XPATH, '//button[@title="Click to edit group subject"]').click()
-                    textbox = driver.find_element(By.XPATH, f'//div[@role="textbox" and @title="{text}"]//span[@data-lexical-text="true"]')
-                    webdriver.ActionChains(driver)\
-                        .key_down(Keys.SHIFT)\
-                        .send_keys(Keys.PAGE_UP)\
-                        .key_up(Keys.SHIFT)\
-                        .perform()
-                    textbox.send_keys(np.random.choice(messages))
-                    textbox.send_keys(Keys.ENTER)
+        sentence = driver.find_element(By.XPATH, "//div[contains(@aria-label, 'Group profile picture for')]").get_attribute("aria-label").removeprefix("Group profile picture for \"").removesuffix("\"")
+        print(sentence)
+        texts = sentence.split()
+        try:
+            for text in texts:
+                for test in bad:
+                    if similar(text, test):
+                        driver.find_element(By.XPATH, '//button[@title="Click to edit group subject"]').click()
+                        textbox = driver.find_element(By.XPATH, f'//div[@role="textbox" and @title="{sentence}"]//span[@data-lexical-text="true"]')
+                        webdriver.ActionChains(driver)\
+                            .key_down(Keys.SHIFT)\
+                            .send_keys(Keys.PAGE_UP)\
+                            .key_up(Keys.SHIFT)\
+                            .perform()
+                        textbox.send_keys(np.random.choice(messages))
+                        textbox.send_keys(Keys.ENTER)
+                        raise SuperBreak
+        except SuperBreak:
+            pass
 except KeyboardInterrupt:
     print("Stopped by user")
 finally:
