@@ -33,6 +33,7 @@ print("Please scan the QR code (if needed)...")
 
 group_name = input("Target Group:")
 messages = ["Wesh", "skibidi toilet", "No", "Stop", "Hey this is a family friendly groupchat buddy, watch ur language"]
+bad = ["nigger", "ez", "nigga", "banana", "nique", "dih"]
 
 search_box = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, '//div[@contenteditable="true"][@data-tab="3"]')))
@@ -49,16 +50,17 @@ try:
         print(texts)
         texts = texts.split()
         for text in texts:
-            if similar(text, "nigger") or similar(text, "ez") or similar(text, "nigga") or similar(text, "banana") or similar(text, "nique") or similar(text, "dih"):
-                driver.find_element(By.XPATH, '//button[@title="Click to edit group subject"]').click()
-                textbox = driver.find_element(By.XPATH, f'//div[@role="textbox" and @title="{text}"]//span[@data-lexical-text="true"]')
-                webdriver.ActionChains(driver)\
-                    .key_down(Keys.SHIFT)\
-                    .send_keys(Keys.PAGE_UP)\
-                    .key_up(Keys.SHIFT)\
-                    .perform()
-                textbox.send_keys(np.random.choice(messages))
-                textbox.send_keys(Keys.ENTER)
+            for test in bad:
+                if similar(text, test):
+                    driver.find_element(By.XPATH, '//button[@title="Click to edit group subject"]').click()
+                    textbox = driver.find_element(By.XPATH, f'//div[@role="textbox" and @title="{text}"]//span[@data-lexical-text="true"]')
+                    webdriver.ActionChains(driver)\
+                        .key_down(Keys.SHIFT)\
+                        .send_keys(Keys.PAGE_UP)\
+                        .key_up(Keys.SHIFT)\
+                        .perform()
+                    textbox.send_keys(np.random.choice(messages))
+                    textbox.send_keys(Keys.ENTER)
 except KeyboardInterrupt:
     print("Stopped by user")
 finally:
