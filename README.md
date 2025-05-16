@@ -5,10 +5,10 @@
 | :---- | :---- | :---- |
 | pip install easyorc | easyOCR |  |
 | pip install matplotlib | matplotlib | proper\_growth.py<br />TIFF\_toGrid.py <br />Box plot.py |
-| pip install numpy | numpy | proper\_growth.py<br />TIFF\_toGrid.py |
+| pip install numpy | numpy | proper\_growth.py<br />TIFF\_toGrid.py<br />whatsapp-name-guardian.py |
 | pip install torch | Torch |  |
 | pip install tqdm | TQDM | proper\_growth.py |
-| pip install selenium | selenium |  |
+| pip install selenium | selenium | whatsapp-name-guardian.py |
 | pip install webdriver-manager |  |  |
 | pip install imageio | ImageIO | proper\_growth.py |
 | pip install pyautogui |  |  |
@@ -33,7 +33,7 @@
 | pip install ipaddress |  |  |
 | pip install json |  |  |
 | pip install socket |  |  |
-| pip install  |  |  |
+| pip install metaphone | Metaphone | whatsapp-name-guardian.py |
 | pip install |  |  |
 | pip install |  |  |
 | pip install |  |  |
