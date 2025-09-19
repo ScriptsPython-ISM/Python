@@ -1,4 +1,4 @@
-{
+fetch("https://eu-west-1-production-apis.toddleapp.com/graphql", {
   "headers": {
     "accept": "*/*",
     "accept-language": "en,en-GB;q=0.9,en-US;q=0.8,it;q=0.7,fr;q=0.6",
@@ -182,4 +182,4 @@
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
-}
+});
